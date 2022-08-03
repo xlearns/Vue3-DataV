@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"allowSyntheticDefaultImports": true,
+		"jsx": "preserve",
+		"baseUrl": "."
+	},
+	"include": ["packages"],
+	"exclude": []
+}

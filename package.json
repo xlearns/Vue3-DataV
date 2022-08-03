@@ -1,0 +1,49 @@
+{
+  "name": "datav",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "create-com":"sh script/create-component.sh",
+    "dev": "npm -C playground run dev",
+    "build": "rimraf dist &&  esno build/full-bundle.ts",
+    "git":"bash script/git.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@datav/components": "workspace:^1.0.0",
+    "@datav/utils": "workspace:^1.0.0",
+    "datav": "workspace:^1.0.0",
+    "echarts": "^5.3.2",
+    "rollup-plugin-sass": "^1.2.13",
+    "vue": "^3.2.33"
+  },
+  "devDependencies": {
+    "@babel/core": "7.0.0",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-replace": "^4.0.0",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "@vitejs/plugin-vue-jsx": "^1.3.10",
+    "@vue/compiler-sfc": "*",
+    "esbuild": "^0.14.50",
+    "esno": "^0.16.3",
+    "postcss": ">=8.2.15 <9.0.0",
+    "rollup": "2.77.2",
+    "rollup-plugin-esbuild": "^4.9.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-scss": "^2.6.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.32.1",
+    "rollup-plugin-vue": "^6.0.0",
+    "sass": "^1.51.0",
+    "typescript": "^4.6.4",
+    "unplugin-vue-define-options": "^0.6.1",
+    "rimraf": "3.0.2",
+    "vite": ">=2.5.10 <3.0.0 || >=3.0.0-0 <3.0.0"
+  }
+}
