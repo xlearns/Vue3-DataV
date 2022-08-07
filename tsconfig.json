@@ -1,12 +1,25 @@
 {
 	"compilerOptions": {
+		"composite": true,
+		"skipLibCheck": true,
+		"target": "es2018",
 		"module": "esnext",
+		"baseUrl": ".",
+		"sourceMap": false,
 		"moduleResolution": "node",
+		"allowJs": false,
+		"strict": true,
+		"noUnusedLocals": true,
 		"resolveJsonModule": true,
 		"allowSyntheticDefaultImports": true,
-		"jsx": "preserve",
-		"baseUrl": "."
+		"esModuleInterop": true,
+		"removeComments": false,
+		"rootDir": ".",
+		"types": ["unplugin-vue-define-options"],
+		"paths": {
+			"@datav/*": ["packages/*"]
+		}
 	},
-	"include": ["packages"],
-	"exclude": []
+	"include": ["packages/**/*", "types/shims-vue.d.ts"],
+    "exclude": ["node_modules"]
 }
