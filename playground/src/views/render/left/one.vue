@@ -17,7 +17,9 @@ const options = {
 };
 </script>
 <template>
-  <div class="bg-[#409eff] h-full">
-    <ElEcharts :options="options" open />
+  <div class="h-full">
+    <ElBorderBox1>
+      <ElEcharts :animation="{ open: true }" :options="options" open />
+    </ElBorderBox1>
   </div>
 </template>

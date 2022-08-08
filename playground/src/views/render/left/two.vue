@@ -17,7 +17,9 @@ const options = {
 };
 </script>
 <template>
-  <div class="bg-[#fff] h-full">
-    <ElEcharts :options="options" open />
+  <div class="h-full">
+    <ElBorderBox8>
+      <ElEcharts :options="options" open />
+    </ElBorderBox8>
   </div>
 </template>

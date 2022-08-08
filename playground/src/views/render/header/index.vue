@@ -7,7 +7,11 @@ defineProps<props>();
 
 <template>
   <div class="h-[92px] flex justify-center items-center">
-    <div class="text-light-500 text-[20px]">{{ title }}</div>
+    <ElScanBox>
+      <div class="text-light-500 text-[20px] h-full">
+        {{ title }}
+      </div>
+    </ElScanBox>
   </div>
 </template>
 
