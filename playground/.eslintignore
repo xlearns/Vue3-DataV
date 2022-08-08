@@ -3,3 +3,5 @@ dist
 *.d.ts
 package.json
 index.html
+types
+build

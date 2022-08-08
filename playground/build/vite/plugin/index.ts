@@ -1,4 +1,5 @@
 import { PluginOption } from "vite";
+import customPlugin from "../custom";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import WindiCSS from "vite-plugin-windicss";
@@ -6,7 +7,6 @@ import ElementPlus from "unplugin-element-plus/vite";
 import svgLoader from "vite-svg-loader";
 import configHtmlPlugin from "./html";
 import DefineOptions from "unplugin-vue-define-options/vite";
-import Mkcert from "vite-plugin-mkcert";
 
 export function getPluginsList(viteEnv, isbuild) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
@@ -16,7 +16,7 @@ export function getPluginsList(viteEnv, isbuild) {
     WindiCSS(),
     DefineOptions(),
     svgLoader(),
-    Mkcert()
+    customPlugin()
   ];
   vitePlugins.push(configHtmlPlugin(viteEnv, isbuild));
   return vitePlugins;

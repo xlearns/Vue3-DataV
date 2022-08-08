@@ -17,6 +17,7 @@ defineOptions({
 <template>
 	<el-table :data="tableData" style="height: 90%; width: 90%">
 		<el-table-column
+			:show-overflow-tooltip="true"
 			:prop="item.prop"
 			:label="item.label"
 			:width="item.width"
@@ -37,5 +38,6 @@ defineOptions({
 }
 .el-table {
 	background: transparent !important;
+	--el-table-row-hover-bg-color: #326dc4;
 }
 </style>

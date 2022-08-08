@@ -18,7 +18,7 @@ export default ({ command, mode }: ConfigEnv) => {
     },
     // 服务端渲染
     server: {
-      https: true,
+      // https: true,
       host: "0.0.0.0",
       port: VITE_PORT,
       proxy: createProxy(VITE_PROXY)

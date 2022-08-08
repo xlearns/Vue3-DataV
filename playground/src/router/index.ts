@@ -5,14 +5,19 @@ import {
   createWebHistory
 } from "vue-router";
 import { toRouteType, routesItems } from "./types";
-import Home from "@/views/Home.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "home",
-    component: Home,
+    component: () => import("@/views/Home.vue"),
     meta: { isPublic: true, title: "首页" }
+  },
+  {
+    path: "/debug",
+    name: "debug",
+    component: () => import("@/views/Debug.vue"),
+    meta: { isPublic: true, title: "调试" }
   }
 ];
 
