@@ -5,3 +5,4 @@ package.json
 index.html
 types
 build
+build/*

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, shallowRef } from "vue";
 import { useElRender } from "@/hooks/useElRender";
 import custom from "@/views/custom";
 const { com, options } = useElRender();
@@ -9,11 +9,14 @@ const props = withDefaults(
   }>(),
   {}
 );
-const render = ref();
+const render = shallowRef();
 function init() {
   const { k, index } = props.config;
-  const ikey = k + (index + 1);
+
+  const ikey = (k as number) + ((index as number) + 1);
+
   const ckey = com.value[ikey];
+
   if (!ckey) {
     return;
   }

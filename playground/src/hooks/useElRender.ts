@@ -1,8 +1,16 @@
-import JSON from "../../config.json";
-import { ref } from "vue";
-const config = ref(JSON);
-const com = ref({});
-//字符串转换数组
+import { com as CONFIG_COM, config as CONFIG } from "../../config.json";
+import BASE from "../../base.json";
+
+import { ref, watchEffect } from "vue";
+
+const isdev = ref(true);
+
+const isLoadConfig = !!Object.keys(CONFIG_COM).length;
+
+const config = ref(isLoadConfig ? CONFIG : BASE);
+
+const com = ref(isLoadConfig ? CONFIG_COM : {});
+
 function parse2(arr) {
   try {
     if (!Array.isArray(arr)) {
@@ -48,8 +56,13 @@ function parse(arr) {
   }
 }
 
+watchEffect(() => {
+  const { DEV } = import.meta.env;
+  isdev.value = DEV;
+});
 export const useElRender = function () {
   return {
+    isdev,
     parse,
     parse2,
     config,

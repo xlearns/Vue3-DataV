@@ -2,7 +2,10 @@
 import { ref, onMounted } from "vue";
 import { useElRender } from "@/hooks/useElRender";
 import render from "./render";
-const { parse, config, parse2 } = useElRender();
+import { useRouter } from "vue-router";
+const { parse, config, parse2, isdev } = useElRender();
+
+const router = useRouter();
 
 const headerHeight = 92;
 
@@ -24,6 +27,12 @@ onMounted(() => {
 function ElRender(type: string, num: number) {
   return render[type][num] || render["default"];
 }
+
+window.addEventListener("keydown", e => {
+  if (e.keyCode === 123) {
+    isdev.value && router.push("/debug");
+  }
+});
 </script>
 <template>
   <ElFullScreen

@@ -1,9 +1,7 @@
-// import leftOne from "./left/one.vue";
-// import leftTwo from "./left/two.vue";
-// import leftThree from "./left/one.vue";
-
-// import centerOne from "./center/one.vue";
-// import rightOne from "./left/one.vue";
+/**
+ * @description: left or center or right is null Array render default component
+ * @example: import leftOne from "./left/one.vue";
+ */
 
 import df from "@/views/default/index.vue";
 import header from "@/views/header/index.vue";

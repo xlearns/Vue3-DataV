@@ -5,12 +5,15 @@ import Layout from "./debug/Layout.vue";
 import Page from "./debug/Page.vue";
 import { onMounted, ref } from "vue";
 import Home from "./Home.vue";
+import { useRouter } from "vue-router";
 const { config, com } = useElRender();
 const dom = ref(null);
 const keys = ref([]);
 const state = ref(true);
 const drawer = ref(true);
 const activeName = ref("first");
+
+const router = useRouter();
 
 function show() {
   drawer.value = !drawer.value;
@@ -25,10 +28,16 @@ function parse(obj) {
   return res;
 }
 function save() {
-  sendingSave(parse({ config: config.value, com: com.value })).then(res => {
-    console.log(res);
-  });
+  sendingSave(parse({ config: config.value, com: com.value })).then(
+    (res: Record<string, unknown>) => {
+      const { status } = res;
+      if (status === 200) {
+        router.push("/");
+      }
+    }
+  );
 }
+
 function yes() {
   state.value = false;
   setTimeout(() => {
