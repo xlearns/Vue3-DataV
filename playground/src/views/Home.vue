@@ -1,37 +1,40 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { useElRender } from "@/hooks/useElRender";
 import render from "./render";
 import { useRouter } from "vue-router";
 const { parse, config, parse2, isdev } = useElRender();
-
 const router = useRouter();
-
 const headerHeight = 92;
-
 const mbHeight = 16;
-
 const contentHeight = ref<string | number>(config.value.size.height);
-
 function getContentHeight() {
   contentHeight.value =
     Number(config.value.size.height) - headerHeight - mbHeight;
 }
-
 defineExpose(config.value);
-
 onMounted(() => {
   getContentHeight();
 });
-
 function ElRender(type: string, num: number) {
-  return render[type][num] || render["default"];
+  let _render = render.value;
+  return _render[type][num] || _render["default"];
 }
-
 window.addEventListener("keydown", e => {
-  if (e.keyCode === 123) {
+  if (e.keyCode === 27) {
     isdev.value && router.push("/debug");
   }
+});
+
+const sli = computed(() => {
+  let l = Object.keys(config.value.content.container).length;
+  /**
+   * @warning 存在bug
+   * @description 当大于5个删除或者等于1个时候会报错
+   */
+  let s = l >= 5 ? l - 2 : l >= 3 ? l - 1 : l;
+  console.log(s);
+  return s;
 });
 </script>
 <template>
@@ -52,7 +55,7 @@ window.addEventListener("keydown", e => {
       >
         <div
           class="grid gap-2"
-          v-for="k in Object.keys(config.layout)"
+          v-for="k in Object.keys(config.layout).slice(0, sli)"
           :key="k"
           :style="{
             height: `${contentHeight}px`,
